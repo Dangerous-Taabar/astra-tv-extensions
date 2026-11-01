@@ -1,0 +1,38 @@
+[
+  {
+    "name": "DesiSerials",
+    "internalName": "DesiSerials",
+    "version": 1,
+    "description": "DesiSerialsProvider - Indian TV Serials & Daily Soaps Engine",
+    "authors": [
+      "Astra TV"
+    ],
+    "tvTypes": [
+      "TvSerial"
+    ],
+    "language": "hi",
+    "iconUrl": "https://www.desi-serials.to/favicon.ico",
+    "fileSize": 14915,
+    "status": 1,
+    "url": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/astra-tv-extensions/main/providers/desi_serials.py"
+  },
+  {
+    "name": "HDhub4u",
+    "internalName": "HDhub4u",
+    "version": 1,
+    "description": "HDhub4u Provider - High-Speed Movies & Web Series Engine",
+    "authors": [
+      "Astra TV"
+    ],
+    "tvTypes": [
+      "Movie",
+      "TvSeries",
+      "Anime"
+    ],
+    "language": "hi",
+    "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
+    "fileSize": 16921,
+    "status": 1,
+    "url": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/astra-tv-extensions/main/providers/hdhub4u.py"
+  }
+]
