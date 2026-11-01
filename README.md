@@ -21,6 +21,7 @@ Features secure `.atx` (Astra TV Extension) packages with SHA-256 integrity veri
 | **DesiSerials** | `DesiSerials.atx` | TV Serials (Star Plus, Zee TV, Sony, Colors, SAB TV) | Hindi | ✅ Active |
 | **AnimeDubHindi** | `AnimeDubHindi.atx` | Anime Movies & Series (Hindi, Tamil, Telugu Dubbed) | Hindi, Multi | ✅ Active |
 | **Cricfy** | `Cricfy.atx` | Live Sports & Cricket (TATA Play, Hotstar, FanCode) | English, Hindi | ✅ Active |
+| **LivXow** | `LivXow.atx` | Live Sports Events & TV Channels (TNT, Prime, Willow) | English, Multi | ✅ Active |
 
 ---
 

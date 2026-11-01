@@ -84,6 +84,8 @@ def parse_provider_metadata(file_path):
         icon_url = "https://www.animedubhindi.link/favicon.ico"
     elif "cricfy" in lower_name:
         icon_url = "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png"
+    elif "livxow" in lower_name:
+        icon_url = "https://www.livxow.site/logo.jpg"
 
     return {
         "name": name,

@@ -14,7 +14,7 @@
     "iconUrl": "https://www.animedubhindi.link/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/AnimeDubHindi.atx",
     "fileSize": 4398,
-    "sha256": "9d46bd14e4d63c6715f64a13cdd654d632ff582a3a199f81c14567c148ca378f",
+    "sha256": "85446af023593ae2882ca30f13b3ec9bca11a6a9cd542ecbbb9b3c8de967cd35",
     "status": 1
   },
   {
@@ -33,7 +33,7 @@
     "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/Cricfy.atx",
     "fileSize": 4469,
-    "sha256": "633ed183ad3b133cfe98581920624e06cb035fae5c3cfe65a99cd89ad60bb5d3",
+    "sha256": "6519660595a7e422adc33736eeea4fc5ac11432cd56171c62d548c645f25873b",
     "status": 1
   },
   {
@@ -51,7 +51,7 @@
     "iconUrl": "https://www.desi-serials.to/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/DesiSerials.atx",
     "fileSize": 4567,
-    "sha256": "70776002a19d76861e454b8a39fa56e8cbf87981735f88a2fa534a0bf0cab426",
+    "sha256": "65562b2b5eaf9aab58a61d6946e89cbc3a405296026556f6480f491ee513eb40",
     "status": 1
   },
   {
@@ -70,7 +70,26 @@
     "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/HDhub4u.atx",
     "fileSize": 5227,
-    "sha256": "986a82a71086e9a66ae3da33152d33267a8ac5ff80b8668eeb932bcb80cb2ddc",
+    "sha256": "6543c0cb05e90ee5ef6aad32543eedc90211f5c388dd5d584f3c076365166714",
+    "status": 1
+  },
+  {
+    "name": "LivXow",
+    "internalName": "LivXow",
+    "version": 1,
+    "description": "LivXow Provider for Astra TV",
+    "authors": [
+      "Astra TV"
+    ],
+    "tvTypes": [
+      "LiveStream",
+      "Live"
+    ],
+    "language": "en",
+    "iconUrl": "https://www.livxow.site/logo.jpg",
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/LivXow.atx",
+    "fileSize": 5024,
+    "sha256": "1d8e970610fc463d159a5f8900e57bb3cbbaccf7593f592ff1fd9e1b35370004",
     "status": 1
   }
 ]
