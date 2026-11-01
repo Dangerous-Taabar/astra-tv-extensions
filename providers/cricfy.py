@@ -224,14 +224,17 @@ class CricfyProvider:
     def __init__(self):
         self.base_url = None
 
-    def get_categories(self):
-        """Returns verified active live sports & TV channel playlists."""
+    def get_categories(self, tv_type=None):
+        """Returns verified active live TV channel playlists."""
+        if tv_type == "LiveEvents":
+            return []  # Cricfy has only 24/7 TV channels, no match events
+
         return [
-            ("[Live] FanCode Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
-            ("[Live] Prime Video Sports", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
-            ("[Live] India TV Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
-            ("[Live] Samsung TV Plus", "https://alex4528.site/playlist/samsungtv.m3u"),
-            ("[Live] Free TV Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
+            ("[Live TV] FanCode Sports Channels", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
+            ("[Live TV] Prime Video Sports Channels", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
+            ("[Live TV] India TV Channels", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
+            ("[Live TV] Samsung TV Plus Channels", "https://alex4528.site/playlist/samsungtv.m3u"),
+            ("[Live TV] Free TV Global Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
         ]
 
     def get_items(self, path="", page=1):

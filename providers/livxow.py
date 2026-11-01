@@ -199,8 +199,25 @@ class LivXowProvider:
             self.base_url = get_firebase_config()
         return self.base_url
 
-    def get_categories(self):
+    def get_categories(self, tv_type=None):
         """Returns clean sport categories and active TV channels."""
+        if tv_type == "LiveEvents":
+            return [
+                ("[Sports] Live Cricket Matches", "special://events?sport=Cricket"),
+                ("[Sports] Live Football Matches", "special://events?sport=Football"),
+                ("[Sports] Boxing & WWE Events", "special://events?sport=Boxing"),
+                ("[Sports] Basketball Games", "special://events?sport=Basketball"),
+                ("[Sports] Motorsport & F1", "special://events?sport=Motorsport"),
+                ("[Sports] Tennis Tournaments", "special://events?sport=Tennis"),
+                ("[Sports] American Football (NFL)", "special://events?sport=American football"),
+                ("[Sports] Hockey Matches", "special://events?sport=Hockey"),
+                ("[Sports] All Live & Upcoming Matches", "special://events"),
+            ]
+        elif tv_type == "LiveTV":
+            return [
+                ("[Live TV] 24/7 Sports Channels (TNT, TSN, BeIN)", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
+            ]
+
         return [
             ("[Sports] Live Cricket Matches", "special://events?sport=Cricket"),
             ("[Sports] Live Football Matches", "special://events?sport=Football"),
