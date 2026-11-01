@@ -71,12 +71,19 @@ def parse_provider(file_path):
     else:
         description = f"{name} Scraper for Astra TV"
 
+    # SHA-256 Checksum for integrity verification
+    import hashlib
+    with open(file_path, "rb") as f:
+        sha256_hash = hashlib.sha256(f.read()).hexdigest()
+
     # Default icons
     icon_url = "https://raw.githubusercontent.com/recloudstream/extensions/master/img/default.png"
     if "hdhub" in name.lower():
         icon_url = "https://new10.hdhub4u.cl/favicon.ico"
     elif "desi" in name.lower():
         icon_url = "https://www.desi-serials.to/favicon.ico"
+    elif "anime" in name.lower():
+        icon_url = "https://www.animedubhindi.link/favicon.ico"
 
     return {
         "name": name,
@@ -88,6 +95,7 @@ def parse_provider(file_path):
         "language": lang,
         "iconUrl": icon_url,
         "fileSize": os.path.getsize(file_path),
+        "sha256": sha256_hash,
         "status": 1
     }
 

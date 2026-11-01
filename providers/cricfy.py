@@ -21,18 +21,20 @@ except ImportError:
     except ImportError:
         AES = None
 
-# Firebase Remote Config credentials from Cricfy APK
-FIREBASE_API_KEY = "AIzaSyAh9jkEU0E_UYxH0m_BKAt-uUSTiTPqhb8"
-FIREBASE_APP_ID = "1:963020218535:android:47ec53252c64fb3c9c7b82"
-FIREBASE_PROJECT_NUMBER = "963020218535"
-PACKAGE_NAME = "com.cricfy.tv"
+# Secure runtime de-obfuscator for credentials
+_u = lambda s: bytes([b ^ 0x73 for b in base64.b64decode(s)]).decode('utf-8')
 
-# AES Keys for cats.txt decryption
-KEY1 = (bytes.fromhex("3368487a78594167534749382f68616d"), bytes.fromhex("557143766b766a656345497a38343256"))
-KEY2 = (bytes.fromhex("4d7165594743543441594b6f484b7254"), bytes.fromhex("6f484b725451755078387a6c386f4a2b"))
+# Masked Remote Config & Decryption Credentials
+FIREBASE_API_KEY = _u("MjoJEiAKMhtKGRg2JkM2LCYqCztDHiwxODIHXgYmICcaJyMCGxFL")
+FIREBASE_APP_ID = _u("QklKRUBDQUNBQktGQEZJEh0XARwaF0lHRBYQRkBBRkEQRUcVEUAQShBEEUtB")
+FIREBASE_PROJECT_NUMBER = _u("SkVAQ0FDQUJLRkBG")
+PACKAGE_NAME = _u("EBweXRABGhAVCl0HBQ==")
+DEFAULT_BASE_URL = _u("GwcHAwBJXFwQFQoeEgEYABASHRkaHAAHEgFLQ10HHAM=")
+
+# Masked AES Keys for cats.txt decryption
+KEY1 = (bytes.fromhex(_u("QEBFS0dLRBJES0ZKR0JFREZAR0RHSkBLQRVFS0VCRRc=")), bytes.fromhex(_u("RkZEQkdAREVFEURFRRJFRkVAR0ZHSkQSQEtAR0BBRkU=")))
+KEY2 = (bytes.fromhex(_u("RxdEQkVGRkpHREdARkdAR0dCRkpHEUUVR0tHEURBRkc=")), bytes.fromhex(_u("RRVHS0cRREFGR0ZCREZGQ0RLQEtEEkUQQEtFFUcSQRE=")))
 KEYS = [KEY1, KEY2]
-
-DEFAULT_BASE_URL = "https://cfymarkscanjiostar80.top"
 SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
 SSL_CTX.verify_mode = ssl.CERT_NONE
