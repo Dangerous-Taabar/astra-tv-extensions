@@ -227,11 +227,11 @@ class CricfyProvider:
     def get_categories(self):
         """Returns verified active live sports & TV channel playlists."""
         return [
-            ("🏏 FanCode Live Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
-            ("📺 Prime Video Sports Streams", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
-            ("🇮🇳 India TV Live Channels", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
-            ("📡 Samsung TV Plus Live", "https://alex4528.site/playlist/samsungtv.m3u"),
-            ("🌐 Free TV Global Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
+            ("[Live] FanCode Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
+            ("[Live] Prime Video Sports", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
+            ("[Live] India TV Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
+            ("[Live] Samsung TV Plus", "https://alex4528.site/playlist/samsungtv.m3u"),
+            ("[Live] Free TV Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
         ]
 
     def get_items(self, path="", page=1):

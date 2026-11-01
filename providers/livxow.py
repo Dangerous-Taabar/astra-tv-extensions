@@ -202,16 +202,16 @@ class LivXowProvider:
     def get_categories(self):
         """Returns clean sport categories and active TV channels."""
         return [
-            ("🏏 Live Cricket Matches", "special://events?sport=Cricket"),
-            ("⚽ Live Football Matches", "special://events?sport=Football"),
-            ("🥊 Boxing & WWE Events", "special://events?sport=Boxing"),
-            ("🏀 Basketball Games", "special://events?sport=Basketball"),
-            ("🏎️ Motorsport & F1", "special://events?sport=Motorsport"),
-            ("🎾 Tennis Tournaments", "special://events?sport=Tennis"),
-            ("🏈 American Football (NFL)", "special://events?sport=American football"),
-            ("🏒 Hockey Matches", "special://events?sport=Hockey"),
-            ("🔥 All Live & Upcoming Matches", "special://events"),
-            ("📺 24/7 Live Sports Channels", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
+            ("[Sports] Live Cricket Matches", "special://events?sport=Cricket"),
+            ("[Sports] Live Football Matches", "special://events?sport=Football"),
+            ("[Sports] Boxing & WWE Events", "special://events?sport=Boxing"),
+            ("[Sports] Basketball Games", "special://events?sport=Basketball"),
+            ("[Sports] Motorsport & F1", "special://events?sport=Motorsport"),
+            ("[Sports] Tennis Tournaments", "special://events?sport=Tennis"),
+            ("[Sports] American Football (NFL)", "special://events?sport=American football"),
+            ("[Sports] Hockey Matches", "special://events?sport=Hockey"),
+            ("[Sports] All Live & Upcoming Matches", "special://events"),
+            ("[Live TV] 24/7 Sports Channels", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
         ]
 
     def get_items(self, path="", page=1):
