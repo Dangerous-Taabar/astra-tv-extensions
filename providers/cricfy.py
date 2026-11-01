@@ -165,7 +165,7 @@ def parse_m3u(text):
             continue
         if line.startswith("#EXTINF:"):
             try:
-                info_part, title = line.split(",", 1)
+                info_part, title = line.rsplit(",", 1)
                 current["title"] = title.strip()
                 logo_match = re.search(r'tvg-logo="([^"]+)"', info_part)
                 if logo_match:
@@ -200,6 +200,8 @@ def parse_m3u(text):
             prop = line.replace("#KODIPROP:", "").strip()
             if "license_key=" in prop:
                 current.setdefault("drm", {})["license_key"] = prop.split("license_key=", 1)[1].strip()
+            elif "license_type=" in prop:
+                current.setdefault("drm", {})["license_type"] = prop.split("license_type=", 1)[1].strip()
             elif "manifest_type=" in prop:
                 current.setdefault("drm", {})["manifest_type"] = prop.split("manifest_type=", 1)[1].strip()
         elif not line.startswith("#"):
@@ -246,13 +248,13 @@ class CricfyProvider:
         if categories:
             return categories
 
-        # Fallback sports playlists if remote API fails
+        # Verified active live sports & channel playlists if remote API rotates
         return [
-            ("India TV & Sports Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
             ("FanCode Live Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
-            ("SonyLiv Live Events", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
-            ("Pirates TV Sports", "https://raw.githubusercontent.com/FunctionError/PiratesTv/refs/heads/main/combined_playlist.m3u"),
-            ("Samsung TV Plus", "https://alex4528.site/playlist/samsungtv.m3u"),
+            ("Prime Video Live Sports", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
+            ("India TV Live Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
+            ("Samsung TV Plus Live", "https://alex4528.site/playlist/samsungtv.m3u"),
+            ("Free TV World Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
         ]
 
     def get_items(self, path="", page=1):
