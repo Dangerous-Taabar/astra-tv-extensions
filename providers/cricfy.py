@@ -235,10 +235,10 @@ class CricfyProvider:
                 try:
                     data = json.loads(decrypted)
                     for item in data:
-                        title = item.get("title", "").strip()
-                        cat_link = item.get("catLink", "").strip()
+                        title = (item.get("title") or "").strip()
+                        cat_link = (item.get("catLink") or "").strip()
                         # Only include valid http links
-                        if title and cat_link and cat_link.startswith("http") and cat_link.lower() != "null":
+                        if title and cat_link.startswith("http") and cat_link.lower() != "null":
                             categories.append((title, cat_link))
                 except Exception:
                     pass
@@ -248,11 +248,11 @@ class CricfyProvider:
 
         # Fallback sports playlists if remote API fails
         return [
-            ("CricHD Live Sports", "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/raw/main/ALL.m3u"),
-            ("Free Live Sports", "https://gist.githubusercontent.com/ArcReactorCode/9ff3a4356291e6267ac76e30e4c44bc4/raw/freelivesports.m3u"),
+            ("India TV & Sports Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
+            ("FanCode Live Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
+            ("SonyLiv Live Events", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
             ("Pirates TV Sports", "https://raw.githubusercontent.com/FunctionError/PiratesTv/refs/heads/main/combined_playlist.m3u"),
             ("Samsung TV Plus", "https://alex4528.site/playlist/samsungtv.m3u"),
-            ("India TV Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u")
         ]
 
     def get_items(self, path="", page=1):
