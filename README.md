@@ -19,6 +19,7 @@ Replicates Phisher98's repository architecture for Kodi.
 | :--- | :--- | :--- | :--- |
 | **HDhub4u** | Movies, Web Series, Anime (4K, 1080p BluRay, WEB-DL, HEVC) | Hindi, Multi | ✅ Active |
 | **DesiSerials** | TV Serials (Star Plus, Zee TV, Sony, Colors, SAB TV, etc.) | Hindi | ✅ Active |
+| **AnimeDubHindi** | Anime Movies, Anime Series, Donghua (Hindi, Tamil, Telugu Dubbed) | Hindi, Multi | ✅ Active |
 
 ---
 

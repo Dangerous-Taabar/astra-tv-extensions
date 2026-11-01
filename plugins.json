@@ -1,5 +1,24 @@
 [
   {
+    "name": "AnimeDubHindi",
+    "internalName": "AnimeDubHindi",
+    "version": 1,
+    "description": "AnimeDubHindi Provider - Native Hindi Dubbed Anime Engine",
+    "authors": [
+      "Astra TV"
+    ],
+    "tvTypes": [
+      "Anime",
+      "Movie",
+      "TvSeries"
+    ],
+    "language": "hi",
+    "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/default.png",
+    "fileSize": 14952,
+    "status": 1,
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/anime_dub_hindi.py"
+  },
+  {
     "name": "DesiSerials",
     "internalName": "DesiSerials",
     "version": 1,
