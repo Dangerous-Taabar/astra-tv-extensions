@@ -3,6 +3,6 @@
   "description": "Official Scrapers & Providers Repository for Astra TV",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/astra-tv-extensions/main/plugins.json"
+    "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/plugins.json"
   ]
 }

@@ -7,7 +7,8 @@ Replicates Phisher98's repository architecture for Kodi.
 
 ## 📦 Repository Details
 
-* **Repository URL**: `https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/astra-tv-extensions/main/repo.json`
+* **Repository Manifest URL**:  
+  `https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/repo.json`
 * **Shortcode**: `astra`
 
 ---
@@ -56,5 +57,6 @@ Adding a new scraper takes just 2 simple steps:
 1. Open **Astra TV** inside Kodi.
 2. Go to **Settings > Repositories > Add Repository URL**.
 3. Paste:
-   `https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/astra-tv-extensions/main/repo.json`
+   `https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/repo.json`
+   *(or use shortcode `astra` once configured)*
 4. Click on the repository and click **Install** on any scraper you want!

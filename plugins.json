@@ -14,7 +14,7 @@
     "iconUrl": "https://www.desi-serials.to/favicon.ico",
     "fileSize": 14915,
     "status": 1,
-    "url": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/astra-tv-extensions/main/providers/desi_serials.py"
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/desi_serials.py"
   },
   {
     "name": "HDhub4u",
@@ -33,6 +33,6 @@
     "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
     "fileSize": 16921,
     "status": 1,
-    "url": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/astra-tv-extensions/main/providers/hdhub4u.py"
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/hdhub4u.py"
   }
 ]
