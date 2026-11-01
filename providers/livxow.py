@@ -281,7 +281,22 @@ class LivXowProvider:
                     if not links_rel:
                         continue
 
-                    logo = ev.get("teamBFlag") or ev.get("teamAFlag") or ev.get("eventLogo") or default_logo
+                    # Generate official CNCVerse match banner card (Flag vs Flag with LIVE badge)
+                    card_params = {}
+                    if ev.get("eventName"): card_params["eventName"] = ev["eventName"]
+                    if team_a: card_params["teamA"] = team_a
+                    if ev.get("teamAFlag"): card_params["teamAImg"] = ev["teamAFlag"]
+                    if team_b: card_params["teamB"] = team_b
+                    if ev.get("teamBFlag"): card_params["teamBImg"] = ev["teamBFlag"]
+                    if time_str: card_params["time"] = time_str
+                    if ev.get("date"): card_params["date"] = ev["date"]
+                    card_params["status"] = "LIVE" if prio == 1 else "UPCOMING"
+
+                    if team_a and team_b:
+                        logo = f"https://card.cncverse.dpdns.org/?{urllib.parse.urlencode(card_params)}"
+                    else:
+                        logo = ev.get("eventLogo") or ev.get("teamAFlag") or default_logo
+
                     event_url = f"special://event_links?path={urllib.parse.quote(links_rel)}&title={urllib.parse.quote(title)}"
 
                     items.append({
@@ -314,7 +329,7 @@ class LivXowProvider:
                 for srv in data:
                     srv_name = srv.get("name", "Stream")
                     tag = srv.get("linkTag", "HD")
-                    label = f"▶ {srv_name} [{tag}]"
+                    label = f"[{tag}] {srv_name}"
                     raw_link = srv.get("link", "")
                     if not raw_link:
                         continue
@@ -430,6 +445,26 @@ class LivXowProvider:
 
     def load(self, url):
         """Prepares playback options for Astra TV."""
+        if url.startswith("special://"):
+            items = self.get_items(url)
+            options = []
+            for it in items:
+                u = it.get("url", "")
+                if u.startswith("{"):
+                    try:
+                        d = json.loads(u)
+                        u = d.get("url", u)
+                    except Exception:
+                        pass
+                options.append({
+                    "label": it.get("title", "Server"),
+                    "urls": [u]
+                })
+            return {
+                "title": "Match Stream Options",
+                "options": options
+            }
+
         target_url = url
         title = "Live Stream"
         if url.startswith("{"):
