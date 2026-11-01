@@ -17,6 +17,24 @@
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/anime_dub_hindi.py"
   },
   {
+    "name": "Cricfy",
+    "internalName": "Cricfy",
+    "version": 1,
+    "description": "Cricfy Provider for Astra TV",
+    "authors": [
+      "Astra TV"
+    ],
+    "tvTypes": [
+      "LiveStream",
+      "Live"
+    ],
+    "language": "en",
+    "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/default.png",
+    "fileSize": 12058,
+    "status": 1,
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/cricfy.py"
+  },
+  {
     "name": "DesiSerials",
     "internalName": "DesiSerials",
     "version": 1,
