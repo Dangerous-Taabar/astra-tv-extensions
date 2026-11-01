@@ -203,32 +203,32 @@ class LivXowProvider:
         """Returns clean sport categories and active TV channels."""
         if tv_type == "LiveEvents":
             return [
-                ("[Sports] Live Cricket Matches", "special://events?sport=Cricket"),
-                ("[Sports] Live Football Matches", "special://events?sport=Football"),
-                ("[Sports] Boxing & WWE Events", "special://events?sport=Boxing"),
-                ("[Sports] Basketball Games", "special://events?sport=Basketball"),
-                ("[Sports] Motorsport & F1", "special://events?sport=Motorsport"),
-                ("[Sports] Tennis Tournaments", "special://events?sport=Tennis"),
-                ("[Sports] American Football (NFL)", "special://events?sport=American football"),
-                ("[Sports] Hockey Matches", "special://events?sport=Hockey"),
-                ("[Sports] All Live & Upcoming Matches", "special://events"),
+                ("Cricket", "special://events?sport=Cricket"),
+                ("Football", "special://events?sport=Football"),
+                ("Boxing & WWE", "special://events?sport=Boxing"),
+                ("Basketball", "special://events?sport=Basketball"),
+                ("Motorsport & F1", "special://events?sport=Motorsport"),
+                ("Tennis", "special://events?sport=Tennis"),
+                ("American Football (NFL)", "special://events?sport=American football"),
+                ("Hockey", "special://events?sport=Hockey"),
+                ("All Live & Upcoming Matches", "special://events"),
             ]
         elif tv_type == "LiveTV":
             return [
-                ("[Live TV] 24/7 Sports Channels (TNT, TSN, BeIN)", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
+                ("24/7 Sports Channels (TNT, TSN, BeIN)", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
             ]
 
         return [
-            ("[Sports] Live Cricket Matches", "special://events?sport=Cricket"),
-            ("[Sports] Live Football Matches", "special://events?sport=Football"),
-            ("[Sports] Boxing & WWE Events", "special://events?sport=Boxing"),
-            ("[Sports] Basketball Games", "special://events?sport=Basketball"),
-            ("[Sports] Motorsport & F1", "special://events?sport=Motorsport"),
-            ("[Sports] Tennis Tournaments", "special://events?sport=Tennis"),
-            ("[Sports] American Football (NFL)", "special://events?sport=American football"),
-            ("[Sports] Hockey Matches", "special://events?sport=Hockey"),
-            ("[Sports] All Live & Upcoming Matches", "special://events"),
-            ("[Live TV] 24/7 Sports Channels", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
+            ("Cricket", "special://events?sport=Cricket"),
+            ("Football", "special://events?sport=Football"),
+            ("Boxing & WWE", "special://events?sport=Boxing"),
+            ("Basketball", "special://events?sport=Basketball"),
+            ("Motorsport & F1", "special://events?sport=Motorsport"),
+            ("Tennis", "special://events?sport=Tennis"),
+            ("American Football (NFL)", "special://events?sport=American football"),
+            ("Hockey", "special://events?sport=Hockey"),
+            ("All Live & Upcoming Matches", "special://events"),
+            ("24/7 Sports Channels", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
         ]
 
     def get_items(self, path="", page=1):
@@ -264,18 +264,22 @@ class LivXowProvider:
 
                 for ev in parsed_events:
                     prio = ev.get("priority", -1)
-                    badge = "[• LIVE]" if prio == 1 else "[• UPCOMING]"
-                    ev_name = ev.get("eventName", "Match")
-                    team_a = ev.get("teamAName", "")
-                    team_b = ev.get("teamBName", "")
-                    time_str = ev.get("time", "")
+                    badge = "[LIVE] " if prio == 1 else ""
+                    ev_name = ev.get("eventName", "Match").strip()
+                    team_a = ev.get("teamAName", "").strip()
+                    team_b = ev.get("teamBName", "").strip()
+                    time_str = ev.get("time", "").strip()
+                    date_str = ev.get("date", "").strip()
 
-                    if team_a and team_b:
-                        title = f"{badge} {team_a} vs {team_b} ({ev_name}) [{time_str}]"
-                    elif team_a:
-                        title = f"{badge} {team_a} ({ev_name}) [{time_str}]"
+                    # Clean redundant names (e.g. Hong Kong Sixes vs Hong Kong Sixes, NPL vs NPL, WBBL vs WBBL)
+                    if team_a and team_b and team_a.lower() != team_b.lower():
+                        match_str = f"{team_a} vs {team_b}"
+                        if ev_name and ev_name.lower() != match_str.lower() and ev_name.lower() not in match_str.lower():
+                            match_str = f"{match_str} ({ev_name})"
                     else:
-                        title = f"{badge} {ev_name} [{time_str}]"
+                        match_str = ev_name or team_a or "Match"
+
+                    title = f"{badge}{match_str}"
 
                     links_rel = ev.get("links", "")
                     if not links_rel:
@@ -299,10 +303,19 @@ class LivXowProvider:
 
                     event_url = f"special://event_links?path={urllib.parse.quote(links_rel)}&title={urllib.parse.quote(title)}"
 
+                    plot_lines = [match_str]
+                    if prio == 1:
+                        plot_lines.append("Status: • LIVE NOW")
+                    if time_str:
+                        plot_lines.append(f"Time: {time_str}")
+                    if date_str:
+                        plot_lines.append(f"Date: {date_str}")
+
                     items.append({
                         "title": title,
                         "url": event_url,
                         "poster": logo,
+                        "plot": "\n".join(plot_lines),
                         "is_live": False,
                         "is_folder": True,
                         "is_series": False

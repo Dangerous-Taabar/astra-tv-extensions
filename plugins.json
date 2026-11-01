@@ -14,7 +14,7 @@
     "iconUrl": "https://www.animedubhindi.link/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/AnimeDubHindi.atx",
     "fileSize": 4398,
-    "sha256": "728e0b0af3555cc556c0d58477664a412d5f2a7148701d2f3006862bc43b7529",
+    "sha256": "112877c73d0ce7a8234f1d82b46a83cceb020bf82031c7750dbdc5561b7795c1",
     "status": 1
   },
   {
@@ -33,7 +33,7 @@
     "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/Cricfy.atx",
     "fileSize": 4282,
-    "sha256": "435e4a7adaefa4a8abb84dd111f5e17e3e825c021dcd77e2454eb49e3dc455cf",
+    "sha256": "c037f82c2031db66a5203193af18ffc701e74657d5e7ca5a0ee36a2c3beac44c",
     "status": 1
   },
   {
@@ -51,7 +51,7 @@
     "iconUrl": "https://www.desi-serials.to/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/DesiSerials.atx",
     "fileSize": 4567,
-    "sha256": "cc73edec31c1a94b3b85893db262749baf9e76a9401053edec7a744f9df69195",
+    "sha256": "6d837bd9c0da6c8a9dfe3f7824c0a870179031b664c8974fa7cb14b18dbe0dce",
     "status": 1
   },
   {
@@ -70,7 +70,7 @@
     "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/HDhub4u.atx",
     "fileSize": 5227,
-    "sha256": "a41f9a651fb0af0b5c3b1acadaf60361779809a406ec585768855dd2ab26a41d",
+    "sha256": "db427d18bc174fbb2a766e396b14d1885eabbdda7caa22006c45dea6be710118",
     "status": 1
   },
   {
@@ -88,8 +88,8 @@
     "language": "en",
     "iconUrl": "https://www.livxow.site/logo.jpg",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/LivXow.atx",
-    "fileSize": 5663,
-    "sha256": "d5899ed315790e26109214f0e6eb2f07c06c4fc665c4a0c0188f3aad29da8309",
+    "fileSize": 5818,
+    "sha256": "d4ec2abd5d8e0ee6b13a0170218a5451a023daa5411c567cea62aea53f21fc45",
     "status": 1
   }
 ]
