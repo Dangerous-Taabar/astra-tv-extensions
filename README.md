@@ -1,7 +1,7 @@
 # Astra TV Extensions & Scrapers Repository 🚀
 
-Official Cloudstream-style Scraper Repository for **Astra TV**.  
-Replicates Phisher98's repository architecture for Kodi.
+Official Scraper & Extension Repository for **Astra TV**.  
+Features secure `.atx` (Astra TV Extension) packages with SHA-256 integrity verification, mirroring Cloudstream's `.cs3` architecture.
 
 ---
 
@@ -9,26 +9,25 @@ Replicates Phisher98's repository architecture for Kodi.
 
 * **Repository Manifest URL**:  
   `https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/repo.json`
-* **Shortcode**: `astra`
+* **Shortcode**: `astra` or `astratv`
 
 ---
 
-## 📺 Available Scrapers
+## 📺 Available Extensions (.atx)
 
-| Scraper | Categories / Types | Language | Status |
-| :--- | :--- | :--- | :--- |
-| **HDhub4u** | Movies, Web Series, Anime (4K, 1080p BluRay, WEB-DL, HEVC) | Hindi, Multi | ✅ Active |
-| **DesiSerials** | TV Serials (Star Plus, Zee TV, Sony, Colors, SAB TV, etc.) | Hindi | ✅ Active |
-| **AnimeDubHindi** | Anime Movies, Anime Series, Donghua (Hindi, Tamil, Telugu Dubbed) | Hindi, Multi | ✅ Active |
+| Extension | Package | Categories / Types | Language | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **HDhub4u** | `HDhub4u.atx` | Movies, Web Series (4K, 1080p, HEVC) | Hindi, Multi | ✅ Active |
+| **DesiSerials** | `DesiSerials.atx` | TV Serials (Star Plus, Zee TV, Sony, Colors, SAB TV) | Hindi | ✅ Active |
+| **AnimeDubHindi** | `AnimeDubHindi.atx` | Anime Movies & Series (Hindi, Tamil, Telugu Dubbed) | Hindi, Multi | ✅ Active |
+| **Cricfy** | `Cricfy.atx` | Live Sports & Cricket (TATA Play, Hotstar, FanCode) | English, Hindi | ✅ Active |
 
 ---
 
-## 🛠️ How to Add a New Scraper (Up to 40+ Scrapers)
-
-Adding a new scraper takes just 2 simple steps:
+## 🛠️ How to Add a New Extension (.atx)
 
 1. **Add Scraper File**:
-   Put your new provider file (e.g. `vegamovies.py`, `bollyflix.py`, `filmyzilla.py`) inside the `providers/` folder:
+   Add your scraper file (e.g. `vegamovies.py`) inside `providers/`:
    ```python
    class VegaMoviesProvider:
        name = "VegaMovies"
@@ -37,17 +36,19 @@ Adding a new scraper takes just 2 simple steps:
        ...
    ```
 
-2. **Run Manifest Builder**:
+2. **Run .atx Builder**:
    ```bash
    python make_manifest.py
    ```
-   This automatically reads all files in `providers/`, extracts metadata, and updates `plugins.json` and `repo.json`!
+   This automatically:
+   - Compiles and packages your provider into `builds/<Name>.atx` with an embedded manifest.
+   - Calculates the exact file size and cryptographic SHA-256 checksum.
+   - Updates `plugins.json` and `repo.json`.
 
 3. **Push to GitHub**:
-   In VS Code Source Control, or via terminal:
    ```bash
    git add .
-   git commit -m "Add new scraper"
+   git commit -m "Add new extension"
    git push
    ```
 
@@ -55,9 +56,7 @@ Adding a new scraper takes just 2 simple steps:
 
 ## 📥 Installation in Astra TV
 
-1. Open **Astra TV** inside Kodi.
-2. Go to **Settings > Repositories > Add Repository URL**.
-3. Paste:
-   `https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/repo.json`
-   *(or use shortcode `astra` once configured)*
-4. Click on the repository and click **Install** on any scraper you want!
+1. Open **Astra TV** in Kodi.
+2. Go to **Settings > Repositories > Add Repository URL** (or use shortcode `astra`).
+3. Click on **Astra TV Extensions**.
+4. Click **Install** on any provider to download and install its `.atx` package!

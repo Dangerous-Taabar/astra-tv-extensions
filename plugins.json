@@ -12,10 +12,10 @@
     ],
     "language": "hi",
     "iconUrl": "https://www.animedubhindi.link/favicon.ico",
-    "fileSize": 14931,
-    "sha256": "6f21d184c7baefcd09326b0788d57078e89db5d19ae6448b9b36cc10dda25c5a",
-    "status": 1,
-    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/anime_dub_hindi.py"
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/AnimeDubHindi.atx",
+    "fileSize": 4398,
+    "sha256": "9d46bd14e4d63c6715f64a13cdd654d632ff582a3a199f81c14567c148ca378f",
+    "status": 1
   },
   {
     "name": "Cricfy",
@@ -30,11 +30,11 @@
       "Live"
     ],
     "language": "en",
-    "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/default.png",
-    "fileSize": 12457,
-    "sha256": "21fda9951444746cabb2241329f7687e895dc684d10af86cb2a078257ed0645f",
-    "status": 1,
-    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/cricfy.py"
+    "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png",
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/Cricfy.atx",
+    "fileSize": 4469,
+    "sha256": "633ed183ad3b133cfe98581920624e06cb035fae5c3cfe65a99cd89ad60bb5d3",
+    "status": 1
   },
   {
     "name": "DesiSerials",
@@ -49,10 +49,10 @@
     ],
     "language": "hi",
     "iconUrl": "https://www.desi-serials.to/favicon.ico",
-    "fileSize": 14915,
-    "sha256": "b4575cdf063761f8ee47f9cb86c8b9077ce553bd5e015d4e370f117f06994e67",
-    "status": 1,
-    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/desi_serials.py"
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/DesiSerials.atx",
+    "fileSize": 4567,
+    "sha256": "70776002a19d76861e454b8a39fa56e8cbf87981735f88a2fa534a0bf0cab426",
+    "status": 1
   },
   {
     "name": "HDhub4u",
@@ -68,9 +68,9 @@
     ],
     "language": "hi",
     "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
-    "fileSize": 16912,
-    "sha256": "2c83561faa356fd2a3018ccbcd93b886f8673c4996cbc2cd1994b26fb1669942",
-    "status": 1,
-    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/providers/hdhub4u.py"
+    "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/HDhub4u.atx",
+    "fileSize": 5227,
+    "sha256": "986a82a71086e9a66ae3da33152d33267a8ac5ff80b8668eeb932bcb80cb2ddc",
+    "status": 1
   }
 ]
