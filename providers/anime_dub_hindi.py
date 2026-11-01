@@ -113,7 +113,7 @@ class AnimeDubHindiProvider:
     """Faisal0786 AnimeDubHindi Provider ported to native Python for Astra TV."""
     name = "AnimeDubHindi"
     lang = "hi"
-    supported_types = ["Anime", "Movie", "TvSeries"]
+    supported_types = ["Anime"]
 
     @property
     def main_url(self):

@@ -167,7 +167,7 @@ class HDhub4uProvider:
     """Phisher98 HDHub4u Provider ported to native Python for Astra TV."""
     name = "HDhub4u"
     lang = "hi"
-    supported_types = ["Movie", "TvSeries", "Anime"]
+    supported_types = ["Movie", "TvSeries"]
 
     @property
     def main_url(self):
