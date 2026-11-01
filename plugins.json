@@ -14,7 +14,7 @@
     "iconUrl": "https://www.animedubhindi.link/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/AnimeDubHindi.atx",
     "fileSize": 4398,
-    "sha256": "85446af023593ae2882ca30f13b3ec9bca11a6a9cd542ecbbb9b3c8de967cd35",
+    "sha256": "db0e0da00981f887a73380163a6ffe7e34e6f22e6a571c358afe5cf5a909e5c1",
     "status": 1
   },
   {
@@ -32,8 +32,8 @@
     "language": "en",
     "iconUrl": "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/Cricfy.atx",
-    "fileSize": 4469,
-    "sha256": "6519660595a7e422adc33736eeea4fc5ac11432cd56171c62d548c645f25873b",
+    "fileSize": 4276,
+    "sha256": "0adec819404ef61a1d75735e385753eb58b1a4be87c5de5370805ddeb381fe21",
     "status": 1
   },
   {
@@ -51,7 +51,7 @@
     "iconUrl": "https://www.desi-serials.to/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/DesiSerials.atx",
     "fileSize": 4567,
-    "sha256": "65562b2b5eaf9aab58a61d6946e89cbc3a405296026556f6480f491ee513eb40",
+    "sha256": "07d71804ce6f76ebec247469c5e2fc20e9bace66e5b96b495950d6c6776223a4",
     "status": 1
   },
   {
@@ -70,7 +70,7 @@
     "iconUrl": "https://new10.hdhub4u.cl/favicon.ico",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/HDhub4u.atx",
     "fileSize": 5227,
-    "sha256": "6543c0cb05e90ee5ef6aad32543eedc90211f5c388dd5d584f3c076365166714",
+    "sha256": "455dfc950d6b20c5f2a19cd2ea97e48b25ba492c50030008c0cb1e9bc47aa0ad",
     "status": 1
   },
   {
@@ -88,8 +88,8 @@
     "language": "en",
     "iconUrl": "https://www.livxow.site/logo.jpg",
     "url": "https://raw.githubusercontent.com/Dangerous-Taabar/astra-tv-extensions/main/builds/LivXow.atx",
-    "fileSize": 5024,
-    "sha256": "1d8e970610fc463d159a5f8900e57bb3cbbaccf7593f592ff1fd9e1b35370004",
+    "fileSize": 5323,
+    "sha256": "9a1a8852ecd8984de9578fb50cfba7d1359ba102097f3d7a8de0c775bcf67ed9",
     "status": 1
   }
 ]

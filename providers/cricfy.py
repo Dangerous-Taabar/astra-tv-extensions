@@ -225,38 +225,13 @@ class CricfyProvider:
         self.base_url = None
 
     def get_categories(self):
-        """Returns list of (label, path) tuples matching Astra TV architecture."""
-        if not self.base_url:
-            self.base_url = get_base_url()
-
-        cats_url = f"{self.base_url}/cats.txt"
-        res = fetch_url(cats_url, timeout=6)
-
-        categories = []
-        if res:
-            decrypted = decrypt_data(res)
-            if decrypted:
-                try:
-                    data = json.loads(decrypted)
-                    for item in data:
-                        title = (item.get("title") or "").strip()
-                        cat_link = (item.get("catLink") or "").strip()
-                        # Only include valid http links
-                        if title and cat_link.startswith("http") and cat_link.lower() != "null":
-                            categories.append((title, cat_link))
-                except Exception:
-                    pass
-
-        if categories:
-            return categories
-
-        # Verified active live sports & channel playlists if remote API rotates
+        """Returns verified active live sports & TV channel playlists."""
         return [
-            ("FanCode Live Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
-            ("Prime Video Live Sports", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
-            ("India TV Live Streams", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
-            ("Samsung TV Plus Live", "https://alex4528.site/playlist/samsungtv.m3u"),
-            ("Free TV World Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
+            ("🏏 FanCode Live Sports", "https://raw.githubusercontent.com/doctor-8trange/zyphx8/refs/heads/main/data/fancode.m3u"),
+            ("📺 Prime Video Sports Streams", "https://raw.githubusercontent.com/srhady/willow-event/refs/heads/main/primevideo_sports.m3u"),
+            ("🇮🇳 India TV Live Channels", "https://iptv-org.github.io/iptv/languages/hin.m3u"),
+            ("📡 Samsung TV Plus Live", "https://alex4528.site/playlist/samsungtv.m3u"),
+            ("🌐 Free TV Global Streams", "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"),
         ]
 
     def get_items(self, path="", page=1):

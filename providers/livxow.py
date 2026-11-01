@@ -200,33 +200,19 @@ class LivXowProvider:
         return self.base_url
 
     def get_categories(self):
-        """Returns 2-tuples (category_label, path) for Astra TV."""
-        base = self._get_base_url()
-        categories = [
-            ("[LIVE] Sports Events", "special://events")
+        """Returns clean sport categories and active TV channels."""
+        return [
+            ("🏏 Live Cricket Matches", "special://events?sport=Cricket"),
+            ("⚽ Live Football Matches", "special://events?sport=Football"),
+            ("🥊 Boxing & WWE Events", "special://events?sport=Boxing"),
+            ("🏀 Basketball Games", "special://events?sport=Basketball"),
+            ("🏎️ Motorsport & F1", "special://events?sport=Motorsport"),
+            ("🎾 Tennis Tournaments", "special://events?sport=Tennis"),
+            ("🏈 American Football (NFL)", "special://events?sport=American football"),
+            ("🏒 Hockey Matches", "special://events?sport=Hockey"),
+            ("🔥 All Live & Upcoming Matches", "special://events"),
+            ("📺 24/7 Live Sports Channels", "cat://custom/channels/U1BPUlRTMTc3Mjc2NTI3ODI3Mw.txt"),
         ]
-        res = fetch_url(f"{base}/categories.txt")
-        if res:
-            decrypted = decrypt_http_response(res)
-            try:
-                data = json.loads(decrypted)
-                for item in data:
-                    inner_str = item.get("cat", "{}")
-                    inner = json.loads(inner_str)
-                    name = inner.get("name", "").strip()
-                    api = inner.get("api", "").strip()
-                    ctype = inner.get("type", "m3u").strip()
-                    if not name or not api:
-                        continue
-                    path = f"cat://{ctype}/{api}"
-                    categories.append((f"[Live] {name}", path))
-            except Exception as e:
-                print(f"[LivXow] Categories parse error: {e}")
-
-        # Fallback if categories fail
-        if len(categories) == 1:
-            categories.append(("LivXow Backup Live", "https://fifabd.site/OPLLX7/LIVE2.m3u"))
-        return categories
 
     def get_items(self, path="", page=1):
         """Fetches items for categories, events, or channel server lists."""
@@ -236,8 +222,11 @@ class LivXowProvider:
         base = self._get_base_url()
         default_logo = "https://raw.githubusercontent.com/recloudstream/extensions/master/img/live.png"
 
-        # 1. Live Events List (Matches)
-        if path == "special://events":
+        # 1. Live Events List (Matches filtered by sport)
+        if path.startswith("special://events"):
+            parsed_path = urllib.parse.urlparse(path)
+            q_sport = urllib.parse.parse_qs(parsed_path.query).get("sport", [None])[0]
+
             res = fetch_url(f"{base}/events.txt")
             if not res:
                 return []
@@ -245,18 +234,39 @@ class LivXowProvider:
             items = []
             try:
                 data = json.loads(dec)
+                parsed_events = []
                 for item in data:
                     ev = json.loads(item.get("event", "{}"))
-                    ev_name = ev.get("eventName", "Sports Event")
+                    cat = ev.get("category", "")
+                    if q_sport and cat.lower() != q_sport.lower():
+                        continue
+                    parsed_events.append(ev)
+
+                # Prioritize Live matches (priority == 1) at the top, then upcoming matches
+                parsed_events.sort(key=lambda x: x.get("priority", -1), reverse=True)
+
+                for ev in parsed_events:
+                    prio = ev.get("priority", -1)
+                    badge = "[• LIVE]" if prio == 1 else "[• UPCOMING]"
+                    ev_name = ev.get("eventName", "Match")
                     team_a = ev.get("teamAName", "")
                     team_b = ev.get("teamBName", "")
                     time_str = ev.get("time", "")
-                    title = f"[Live] {ev_name}: {team_a} vs {team_b} [{time_str}]" if team_a else f"[Live] {ev_name} [{time_str}]"
+
+                    if team_a and team_b:
+                        title = f"{badge} {team_a} vs {team_b} ({ev_name}) [{time_str}]"
+                    elif team_a:
+                        title = f"{badge} {team_a} ({ev_name}) [{time_str}]"
+                    else:
+                        title = f"{badge} {ev_name} [{time_str}]"
+
                     links_rel = ev.get("links", "")
                     if not links_rel:
                         continue
-                    logo = ev.get("eventLogo") or ev.get("teamAFlag") or default_logo
+
+                    logo = ev.get("teamBFlag") or ev.get("teamAFlag") or ev.get("eventLogo") or default_logo
                     event_url = f"special://event_links?path={urllib.parse.quote(links_rel)}&title={urllib.parse.quote(title)}"
+
                     items.append({
                         "title": title,
                         "url": event_url,
@@ -287,7 +297,7 @@ class LivXowProvider:
                 for srv in data:
                     srv_name = srv.get("name", "Stream")
                     tag = srv.get("linkTag", "HD")
-                    label = f"Stream: {srv_name} [{tag}]"
+                    label = f"▶ {srv_name} [{tag}]"
                     raw_link = srv.get("link", "")
                     if not raw_link:
                         continue
